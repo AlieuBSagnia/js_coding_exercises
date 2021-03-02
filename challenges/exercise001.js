@@ -9,6 +9,11 @@ function generateInitials(firstName, lastName) {
   if (lastName === undefined) throw new Error("lastName is required");
   // Add your code here!
 
+  const firstInitial = firstName.charAt(0).toUpperCase();
+  const secondInitial = lastName.charAt(0).toUpperCase();
+
+  return firstInitial + "." + secondInitial;
+
 
 }
 
@@ -16,6 +21,8 @@ function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
   // Add your code here!
+
+  
 }
 
 function getSalePrice(originalPrice, reduction) {
