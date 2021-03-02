@@ -77,11 +77,27 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
+
+  const totalScores = scores.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+
+  let meanScores = totalScores / scores.length;
+
+  if (meanScores % 1 !== 0) {
+    meanScores = Number(meanScores.toFixed(2));
+  }
+  return meanScores;
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
+
+  if (n % 3 == 0 && n % 5 == 0) return "fizzbuzz";
+  else if (n % 3 === 0) return "fizz";
+  else if (n % 5 === 0) return "buzz";
+  else return n;
 }
 
 module.exports = {
