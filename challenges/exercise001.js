@@ -22,7 +22,7 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   // Add your code here!
 
-  return originalPrice + (originalPrice * (vatRate/100));
+  return Number ((originalPrice + originalPrice * vatRate/100).toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -30,12 +30,14 @@ function getSalePrice(originalPrice, reduction) {
   if (reduction === undefined) throw new Error("reduction is required");
   // Add your code here!
 
-  return originalPrice - (originalPrice * (reduction/100));
+  return Number ((originalPrice - originalPrice * reduction/100).toFixed(2));
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   // Add your code here!
+
+  return str.length % 2 == 0 ? str.charAt(str.length / 2 - 1) + str.charAt(str.length / 2) : str.charAt(str.length / 2);
 }
 
 function reverseWord(word) {
