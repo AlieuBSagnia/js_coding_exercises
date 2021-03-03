@@ -9,11 +9,24 @@ function getSquares(nums) {
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Your code here!
+
+  const camelCase = words.map((word, ind) => {
+
+    return ind === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1);
+  });
+
+  return camelCase.join('');
 }
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   // Your code here!
+
+  const subjects = people.reduce((acc, curr) => {
+    return acc + curr.subjects.length;
+  }, 0);
+
+  return subjects;
 }
 
 function checkIngredients(menu, ingredient) {
