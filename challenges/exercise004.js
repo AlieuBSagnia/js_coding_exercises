@@ -30,11 +30,15 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   // Your code here
+
+  return users.map(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+
+  return nums.map(num => parseFloat(Math.sqrt(num).toFixed(2)));
 }
 
 function findSentencesContaining(sentences, str) {
