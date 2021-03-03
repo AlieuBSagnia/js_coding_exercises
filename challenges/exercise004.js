@@ -16,11 +16,15 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // Your code here
+
+  return words.filter(word => word.slice(0, 3) === "to ");
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+
+  return nums.filter(num => Number.isInteger(num));
 }
 
 function getCities(users) {
