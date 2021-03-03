@@ -33,12 +33,36 @@ function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
   // Your code here!
+
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].ingredients.includes(ingredient)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
+
+  const duplicates = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let a = 0; a < arr2.length; a++) {
+
+      if (arr1[i] === arr2[a]) {
+        if (!duplicates.includes(arr1[i])) {
+          duplicates.push(arr1[i]);
+        }
+      }
+
+    }
+  }
+
+  return duplicates.sort();
 }
 
 module.exports = {
