@@ -45,18 +45,61 @@ const sumArrays = arrs => {
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
+
+  if (arr.length < 2) {
+    return arr;
+
+  } else if (arr.length === 2) {
+    return arr.reverse();
+
+  } else {
+    const firstArr = [];
+   
+    firstArr.push(arr[arr.length -1])
+    const secondArr = firstArr.concat(arr.slice(1, arr.length - 1));
+    secondArr.push(arr[0]);
+    
+    return secondArr;
+  }
 };
 
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   // Your code here!
+
+  for (const key in haystack ){
+
+    if (typeof haystack[key] === "string" && haystack[key].toLowerCase().includes(searchTerm.toLowerCase())) return true; 
+
+  }
+
+  return false;
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+
+  const frequencies = {};
+  const arr = str.split(" ")
+
+  for (let i = 0; i < arr.length; i++){
+
+    const regex = /(\.|\?|!|:|;|,)/
+    let word = arr[i].toLowerCase();
+   
+    word = word.charAt(word.length - 1).match(regex) ? word.slice(0, word.length - 1) : word;
+
+    if (frequencies[word] === undefined){
+      frequencies[word] = 1;
+    } else {
+      frequencies[word] += 1; 
+    }
+  }
+  return frequencies;
 };
+
 
 module.exports = {
   findNextNumber,
@@ -66,4 +109,5 @@ module.exports = {
   arrShift,
   findNeedle,
   getWordFrequencies
+
 };
