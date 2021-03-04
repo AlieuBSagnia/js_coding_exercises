@@ -2,11 +2,23 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
   // Your code here!
+
+  return nums.indexOf(n) >= 0 && nums.indexOf(n) < nums.length - 1 ? nums[nums.indexOf(n) + 1] : null;
+
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+
+  return str.split('').reduce((acc, num) => {
+
+    if (num === '0') acc["0"] += 1
+    else if (num === '1') acc["1"] += 1
+    return acc;
+
+  }, {0:0, 1:0})
+  
 };
 
 const reverseNumber = n => {
