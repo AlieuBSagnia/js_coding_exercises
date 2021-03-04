@@ -45,11 +45,22 @@ function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   // Your code here
+
+  return sentences.filter(sentence => sentence.toLowerCase().includes(str.toLowerCase()));
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   // Your code here
+
+  return triangles.map(triangle => {
+
+    return triangle.reduce((acc, side) => {
+      if (side > acc) acc = side;
+      return acc;
+    }, 0);
+
+  });
 }
 
 module.exports = {
