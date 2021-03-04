@@ -18,17 +18,28 @@ const count1sand0s = str => {
     return acc;
 
   }, {0:0, 1:0})
-  
+
 };
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
   // Your code here!
+
+  return Number.parseInt(n.toString().split('').reverse().join(''));
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
   // Your code here!
+
+  return arrs.reduce((acc, arr) => {
+
+    return acc + arr.reduce((acc, num) => {
+      return acc + num;
+    }, 0)
+
+  }, 0);
+  
 };
 
 const arrShift = arr => {
