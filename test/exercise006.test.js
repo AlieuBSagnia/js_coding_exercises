@@ -117,6 +117,40 @@ describe("isItPrime", () => {
 
 describe("createMatrix", () => {
 
+    it("throws an error if either of the parameters are not passed in (undefined)", () => {
+        expect(() => {
+            createMatrix();
+        }).toThrow("n is required")
+        expect(() => {
+            createMatrix(5);
+        }).toThrow("fill is required")
+
+    });
+
+    it("throws an error if either of the parameters are of the wrong type", () => {
+        expect(() => {
+            createMatrix("6", "foo");
+        }).toThrow("n must be a number")
+        expect(() => {
+            createMatrix(2, 8);
+        }).toThrow("fill must be a string")
+
+    });
+
+    it("returns a matrix of 1 * 1 when passed 1", () => {
+        expect(createMatrix(1, "foo")).toEqual([
+            ["foo"]
+        ])
+    });
+
+    it("returns a matrix of 2 * 2 when passed 2", () => {
+        expect(createMatrix(2, "foo")).toEqual(
+            [
+                ["foo", "foo"],
+                ["foo", "foo"]
+            ]);
+        expect(createMatrix(2, "foo")[1].length).toBe(2);
+    });
     
 
 });
