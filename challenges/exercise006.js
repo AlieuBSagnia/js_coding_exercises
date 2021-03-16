@@ -126,6 +126,13 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (staff.length === 0) return false;
+
+  const staffOnRota = staff.reduce((acc, worker) => {
+    return worker.rota.filter(weekday => weekday === day).length === 1 ? acc + 1 : acc;
+  }, 0);
+
+  return staffOnRota >= 3;
 };
 
 module.exports = {
