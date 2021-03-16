@@ -6,6 +6,10 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error("An array is required");
+  return arr.reduce((acc, curr) => {
+    return curr % 3 === 0 || curr % 5 === 0 ? acc + curr : acc;
+  }, 0);
 };
 
 /**
@@ -15,6 +19,7 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  
 };
 
 /**
