@@ -19,7 +19,7 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  
+
   const regex = /(C|G|T|A)/
 
   for (let i = 0; i < str.length; i++) {
@@ -35,6 +35,25 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+  const regex = /(C|G|T|A)/
+  for (let i = 0; i < str.length; i++) {
+    if (!str[i].match(regex)) throw new Error("invalid DNA string")
+  }
+
+  const pairs = {
+    A: "T",
+    C: "G",
+    T: "A",
+    G: "C"
+  };
+
+  let DNAPairs = "";
+  for (let i = 0; i < str.length; i++) {
+    DNAPairs = DNAPairs + pairs[str[i]]
+  }
+
+  return DNAPairs;
 };
 
 /**

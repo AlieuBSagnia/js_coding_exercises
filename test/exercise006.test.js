@@ -58,7 +58,27 @@ describe("isValidDNA", () => {
 });
 
 describe("getComplementaryDNA", () => {
-   
+
+    test("throws an error is no string is passed", () => {
+        expect(() => {
+            getComplementaryDNA();
+        }).toThrow("str is required");
+
+    });
+
+    test("returns the correct corresponding DNA base pairs", () => {
+        expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+        expect(getComplementaryDNA("CGTA")).toBe("GCAT");
+        expect(getComplementaryDNA("ACTGCGTA")).toBe("TGACGCAT");
+        expect(getComplementaryDNA("ACTGCGTATTGC")).toBe("TGACGCATAACG");
+    })
+
+    test("returns an error if an invalid string is passed", () => {
+        expect(() => {
+            getComplementaryDNA("ACTJ")
+        }).toThrow("invalid DNA string");
+    });
+
 });
 
 describe("isItPrime", () => {
