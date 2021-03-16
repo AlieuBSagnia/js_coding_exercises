@@ -20,6 +20,12 @@ const sumMultiples = arr => {
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   
+  const regex = /(C|G|T|A)/
+
+  for (let i = 0; i < str.length; i++) {
+    if (!str[i].match(regex)) return false;
+  }
+  return true;
 };
 
 /**
