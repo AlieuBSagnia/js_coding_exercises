@@ -31,25 +31,25 @@ describe("sumMultiples", () => {
 
 describe("isValidDNA", () => {
 
-    it("throws an error if no string is passed in", () => {
+    test("throws an error if no string is passed in", () => {
         expect(() => {
             isValidDNA();
         }).toThrow("str is required");
     });
 
-    it("returns true if string contains only valid DNA characters", () => {
+    test("returns true if string contains only valid DNA characters", () => {
         expect(isValidDNA("CGTA")).toBe(true);
         expect(isValidDNA("CGTACGTA")).toBe(true);
         expect(isValidDNA("ATGCATGC")).toBe(true);
         
     });
 
-    it("returns false if string contains no valid DNA characters", () => {
+    test("returns false if string contains no valid DNA characters", () => {
         expect(isValidDNA("JLMOP")).toBe(false);
         expect(isValidDNA("IRK")).toBe(false);
     });
 
-    it("returns false if string contains a mixture of valid DNA characters & invalid characters", () => {
+    test("returns false if string contains a mixture of valid DNA characters & invalid characters", () => {
         expect(isValidDNA("BGADFCE")).toBe(false);
         expect(isValidDNA("VUSWT")).toBe(false);
 
@@ -117,7 +117,7 @@ describe("isItPrime", () => {
 
 describe("createMatrix", () => {
 
-    it("throws an error if either of the parameters are not passed in (undefined)", () => {
+    test("throws an error if either of the parameters are not passed in (undefined)", () => {
         expect(() => {
             createMatrix();
         }).toThrow("n is required")
@@ -127,7 +127,7 @@ describe("createMatrix", () => {
 
     });
 
-    it("throws an error if either of the parameters are of the wrong type", () => {
+    test("throws an error if either of the parameters are of the wrong type", () => {
         expect(() => {
             createMatrix("6", "foo");
         }).toThrow("n must be a number")
@@ -137,13 +137,13 @@ describe("createMatrix", () => {
 
     });
 
-    it("returns a matrix of 1 * 1 when passed 1", () => {
+    test("returns a matrix of 1 * 1 when passed 1", () => {
         expect(createMatrix(1, "foo")).toEqual([
             ["foo"]
         ])
     });
 
-    it("returns a matrix of 2 * 2 when passed 2", () => {
+    test("returns a matrix of 2 * 2 when passed 2", () => {
         expect(createMatrix(2, "foo")).toEqual(
             [
                 ["foo", "foo"],
