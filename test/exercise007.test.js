@@ -8,6 +8,12 @@ const {
 
 describe("sumDigits", () => {
 
+    it("throws an error if argument not passed in (n is undefined", () => {
+        expect(() => {
+            sumDigits();
+        }).toThrow("n is required");
+    });
+
     test("returns the sum of all the digits from given array", () => {
         expect(sumDigits([4, 6, 3])).toBe(13);
         expect(sumDigits([55, 62, 10])).toBe(127);
