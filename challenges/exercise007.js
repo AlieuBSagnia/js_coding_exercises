@@ -67,7 +67,7 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-  
+
   const givenDate = new Date(date);
   const resultArray = [];
 
@@ -110,6 +110,12 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+
+  const r = parseInt(hexStr.substr(1, 2), 16);
+  const g = parseInt(hexStr.substr(3, 2), 16);
+  const b = parseInt(hexStr.substr(5, 2), 16);
+  return "rgb(" + r + "," + g + "," + b + ")";
+  
 };
 
 /**
