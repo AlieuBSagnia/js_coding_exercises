@@ -91,6 +91,13 @@ describe("getScreentimeAlertList", () => {
     });
 
 describe("hextoRGB", () => {
+
+    test("returns range of numbers as an array with the step as gap between numbers in the range and both the start and the end numbers inclusive.", () => {
+        expect(hexToRGB("#FF1133")).toEqual("rgb(255,17,51)");
+        expect(hexToRGB("#33FF73")).toEqual("rgb(51,255,115)");
+        expect(hexToRGB("#0E0F0E")).toEqual("rgb(14,15,14)");
+        expect(hexToRGB("#114F47")).toEqual("rgb(17,79,71)");
+      });
     
 });
 
