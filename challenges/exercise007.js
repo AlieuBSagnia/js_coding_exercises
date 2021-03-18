@@ -115,7 +115,7 @@ const hexToRGB = hexStr => {
   const g = parseInt(hexStr.substr(3, 2), 16);
   const b = parseInt(hexStr.substr(5, 2), 16);
   return "rgb(" + r + "," + g + "," + b + ")";
-  
+
 };
 
 /**
@@ -130,6 +130,50 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  
+  console.log(board)
+  if (board === undefined) throw new Error("board is required");
+  if (board.length !== 3 || board[0].length !== 3 || board[1].length !== 3 || board[2].length !== 3) throw new Error("board not correct shape");
+
+  let winner = "";
+  
+  // rows
+  for (let i = 0; i < board.length; i++) {
+
+    // check for invalid board entry
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j] !== "X" && board[i][j] !== "0" && board[i][j] !== null) {
+        throw new Error("invalid pieces on board")
+      }
+    }
+
+    if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+      winner = board[i][0];
+    }
+  }
+
+  // columns
+  for (let i = 0; i < board[0].length; i++) {
+
+    const column = [];
+    
+    for (let j = 0; j < board.length; j++) {
+        column.push(board[j][i])
+      }
+
+      if (column[0] === column[1] && column[1] === column[2]) {
+        winner = column[0];
+      }
+    }
+
+    // diagonals
+    if (board[0][0] === board[1][1] && board[1][1] === board[2][2] || board[0][2] === board[1][1] && board[1][1] === board[2][0]){
+      winner = board[1][1]
+    }
+
+    if (winner === "" || winner === null) winner = "no winner";
+
+    return winner;
 };
 
 module.exports = {
