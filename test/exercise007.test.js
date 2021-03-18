@@ -102,19 +102,20 @@ describe("hextoRGB", () => {
 });
 
 describe("findWinner", () => {
-    it("throws an error if no argument passed in (undefined)", () => {
+    
+    test("throws an error if no argument passed in (undefined)", () => {
         expect(() => {
             findWinner()
         }).toThrow("board is required");
     });
 
-    it("throws an error if an array containing 3 arrays of 3 is not passed in", () => {
+    test("throws an error if an array containing 3 arrays of 3 is not passed in", () => {
         expect(() => {
             findWinner([])
         }).toThrow("board not correct shape");
     });
 
-    it('throws an error if board contains invalid characters: not "X", "0" or null' , () => {
+    test('throws an error if board contains invalid characters: not "X", "0" or null' , () => {
         const wrongCharacters = [
                 ["X", "0", null],
                 ["X", "banana", "0"],
@@ -126,7 +127,7 @@ describe("findWinner", () => {
         }).toThrow("invalid pieces on board");
     });
 
-    it("returns a winner with 3 in a row", () => {
+    test("returns a winner with 3 in a row", () => {
         const XWins = [
             ["X", "X", "X"],
             ["0", "0", null],
@@ -135,7 +136,7 @@ describe("findWinner", () => {
         expect(findWinner(XWins)).toBe("X")
     });
 
-    it("returns a winner with 3 in a column", () => {
+    test("returns a winner with 3 in a column", () => {
         const NoughtsWins = [
             ["0", "X", "X"],
             ["0", null, "X"],
@@ -144,7 +145,7 @@ describe("findWinner", () => {
         expect(findWinner(NoughtsWins)).toBe("0");
     });
 
-    it("returns a winner with 3 in a diagonal line", () => {
+    test("returns a winner with 3 in a diagonal line", () => {
         const diagonalWinner = [
             ["X", "0", "0"],
             ["0", "X", null],
@@ -153,7 +154,7 @@ describe("findWinner", () => {
         expect(findWinner(diagonalWinner)).toBe("X");
     });
 
-    it("does not return a winner with 3 nulls in a line", () => {
+    test("does not return a winner with 3 nulls in a line", () => {
         const nullWinner = [
             [null, "0", "0"],
             ["0", null, null],
@@ -162,7 +163,7 @@ describe("findWinner", () => {
         expect(findWinner(nullWinner)).toBe("no winner");
     });
 
-    it("does not return a winner if not 3 in a line", () => {
+    test("does not return a winner if not 3 in a line", () => {
         const noWinner = [
             ["X", "0", "0"],
             ["0", "X", "X"],
